@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.recipes.ejb;
 
 import co.edu.uniandes.csw.recipes.entities.RecipeEntity;
+import co.edu.uniandes.csw.recipes.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.recipes.persistence.RecipePersistence;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -24,6 +25,20 @@ public class RecipeLogic {
     }
 
     //TODO crear el método createRecipe
+    
+    public RecipeEntity createRecipe(RecipeEntity in)throws BusinessLogicException{
+        if(in.getName()==null)
+            throw new BusinessLogicException("Nombre nulo");
+        if(in.getName().length()>30)
+            throw new BusinessLogicException("Nombre demasiado largo");
+        if(in.getDescription()==null)
+            throw new BusinessLogicException("Descripcion nula");
+        if(in.getDescription().length()>150)
+              throw new BusinessLogicException("Descripcion demasiado larga");
+        if(persistence.findName(in.getName())!=null)
+            throw new BusinessLogicException("Nombre de receta repetido");
+        return  persistence.createRecipe(in);
+    }
 
 
 }

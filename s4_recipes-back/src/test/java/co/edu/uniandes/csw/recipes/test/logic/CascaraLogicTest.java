@@ -28,6 +28,7 @@ package co.edu.uniandes.csw.recipes.test.logic;
  *
  * @author ISIS2603
  */
+
 public class CascaraLogicTest {
     
 }

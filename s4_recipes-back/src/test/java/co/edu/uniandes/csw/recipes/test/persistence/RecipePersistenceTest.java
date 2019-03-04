@@ -46,6 +46,9 @@ public class RecipePersistenceTest {
     public void createRecipeTest() {
         PodamFactory factory = new PodamFactoryImpl();
         RecipeEntity newEntity = factory.manufacturePojo(RecipeEntity.class);
-        //TODO terminar la prueba         
+        RecipeEntity persistence=recipePersistence.createRecipe(newEntity);
+        Assert.assertEquals(persistence.getId(), newEntity.getId());
+        Assert.assertEquals(persistence.getDescription(), newEntity.getDescription());
+        Assert.assertEquals(persistence.getName(), newEntity.getName());
     }
 }

@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "e8e309c1-a5d3-4ea3-bf33-6fa5332ef37d",
+		"name": "recetaCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7bd72f3e-9c73-43cd-860a-40dd16aec58f",
+						"exec": [
+							"tests[\"No genera error en inializar\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tacos de pollo\",\r\n    \"description\": \"Receta para cocinar tacos típicos con un fuerte sabor picante\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s4_recipes-api/api/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
