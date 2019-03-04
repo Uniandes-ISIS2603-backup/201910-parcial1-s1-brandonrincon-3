@@ -1,6 +1,7 @@
 package co.edu.uniandes.csw.recipes.test.logic;
 
 import co.edu.uniandes.csw.recipes.ejb.RecipeLogic;
+import co.edu.uniandes.csw.recipes.entities.IngredientEntity;
 import co.edu.uniandes.csw.recipes.entities.RecipeEntity;
 import co.edu.uniandes.csw.recipes.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.recipes.persistence.RecipePersistence;
@@ -32,6 +33,8 @@ public class RecipeLogicTest {
 
     @Inject
     private RecipeLogic recipeLogic;
+    
+  
     
 
     @PersistenceContext
@@ -100,6 +103,7 @@ public class RecipeLogicTest {
     @Test
     public void createRecipeTest() throws BusinessLogicException {
          RecipeEntity newEntity  = factory.manufacturePojo(RecipeEntity.class);
+         newEntity.getIngredientes().add(new IngredientEntity());
          RecipeEntity persistence=recipeLogic.createRecipe(newEntity);
          Assert.assertEquals(persistence.getId(), newEntity.getId());
         Assert.assertEquals(persistence.getDescription(), newEntity.getDescription());
@@ -113,6 +117,7 @@ public class RecipeLogicTest {
          newEntity.setDescription("ssl");
          RecipeEntity persistence=recipeLogic.createRecipe(newEntity);
     }
+    
     @Test(expected = BusinessLogicException.class)
     public void createRecipeFailDescriptionTest() throws BusinessLogicException {
          RecipeEntity newEntity  = factory.manufacturePojo(RecipeEntity.class);

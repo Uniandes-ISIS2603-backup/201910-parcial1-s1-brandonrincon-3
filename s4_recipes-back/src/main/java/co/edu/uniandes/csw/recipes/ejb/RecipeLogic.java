@@ -37,7 +37,11 @@ public class RecipeLogic {
               throw new BusinessLogicException("Descripcion demasiado larga");
         if(persistence.findName(in.getName())!=null)
             throw new BusinessLogicException("Nombre de receta repetido");
+        
+        if(in.getIngredientes().isEmpty())
+             throw new BusinessLogicException("no hay ingredientes en la receta");
         return  persistence.createRecipe(in);
+        
     }
 
 

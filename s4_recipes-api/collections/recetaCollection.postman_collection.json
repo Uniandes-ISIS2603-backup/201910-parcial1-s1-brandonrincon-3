@@ -34,16 +34,106 @@
 					"raw": "{\r\n    \"name\": \"Tacos de pollo\",\r\n    \"description\": \"Receta para cocinar tacos típicos con un fuerte sabor picante\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/s4_recipes-api/api/recipes",
+					"raw": "http://{{ip}}:{{puerto}}/s4_recipes-api/api/recipes",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{ip}}"
 					],
-					"port": "8080",
+					"port": "{{puerto}}",
 					"path": [
 						"s4_recipes-api",
 						"api",
 						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Caso2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf9de98c-d0b9-4710-aa94-5b9c4b518b49",
+						"exec": [
+							"tests[\"No genera error en inializar\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tacos al pastor\",\r\n    \"description\": \"Los mismos de antes pero más ricos\",\r\n    \"ingredients\": [{\r\n        \"name\": \"Tomate\",\r\n\t\t    \"calories\": 1000\r\n    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recipes-api/api/recipes/",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Caso1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "138d89bf-8f07-4834-b754-9719306fcfc0",
+						"exec": [
+							"tests[\"No genera error en inializar\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tacos al pastor\",\r\n    \"description\": \"Los originales y únicos\",\r\n    \"ingredients\": [{\r\n                      \"name\": \"Ají\",\r\n              \t\t    \"calories\": 20\r\n                    }, {\r\n                      \"name\": \"Frijol\",\r\n              \t\t    \"calories\": 12000\r\n                    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recipes-api/api/recipes/",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes",
+						""
 					]
 				}
 			},

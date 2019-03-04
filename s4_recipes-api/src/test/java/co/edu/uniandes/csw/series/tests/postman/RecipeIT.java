@@ -9,8 +9,6 @@ package co.edu.uniandes.csw.series.tests.postman;
  *
  * @author estudiante
  */
-p
-
 import co.edu.uniandes.csw.postman.tests.PostmanTestBuilder;
 import co.edu.uniandes.csw.recipes.dtos.CascaraDTO;
 import co.edu.uniandes.csw.recipes.mappers.BusinessLogicExceptionMapper;
